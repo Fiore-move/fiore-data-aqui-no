@@ -74,7 +74,7 @@ const serial = async (
                 // -> altere nome da tabela e colunas se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> Importante! você deve ter o aquario de id 1 cadastrado.
-                sqlquery = `INSERT INTO sensor (fkEmpresa,umidade, temperatura) VALUES (10,${dht11Umidade}, ${dht11Temperatura})`;
+                sqlquery = `INSERT INTO sensor (fkEmpresa,umidade, temperatura) VALUES (?,${dht11Umidade}, ${dht11Temperatura})`;
 
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
                 // Importante! você deve ter criado o usuário abaixo com os comandos presentes no arquivo
@@ -98,10 +98,10 @@ const serial = async (
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO sensor (fkEmpresa,umidade, temperatura, dtHora) VALUES (10, ?, ?, now())',
+                    'INSERT INTO sensor (fkEmpresa,umidade, temperatura, dtHora) VALUES (?, ?, ?, now())',
                     [dht11Umidade, dht11Temperatura]
                 );
-                console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
+                console.log("valores inseridos no banco: ", idSensor, dht11Umidade + ", " + dht11Temperatura)
 
             } else {
                 throw new Error('Ambiente não configurado. Verifique o arquivo "main.js" e tente novamente.');
