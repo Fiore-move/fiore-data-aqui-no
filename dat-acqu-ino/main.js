@@ -27,9 +27,9 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
         // altere!
         // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
         host: "localhost",
-        user: "aluno",
-        password: "sptech",
         database: "FioreMove",
+        user: "root",
+        password: "Thy08021104",
       })
       .promise();
   } else if (AMBIENTE == "producao") {

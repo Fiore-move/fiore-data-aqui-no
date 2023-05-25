@@ -261,13 +261,15 @@
             var valores = valores.slice(ultimaPaginacao);
             valores.forEach((valor) => {
                 //Máximo de 60 itens exibidos no gráfico
-                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10 && grafico.data.datasets[1].data.length) {
                     grafico.data.labels.shift();
                     grafico.data.datasets[0].data.shift();
+                    grafico.data.datasets[1].data.shift();
                 }
 
                 grafico.data.labels.push(tempo[endpoint]++);
                 grafico.data.datasets[0].data.push(parseFloat(valor));
+                grafico.data.datasets[1].data.push(parseFloat(valor));
                 grafico.update();
             })
         }
