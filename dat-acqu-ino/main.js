@@ -1,4 +1,3 @@
-// não altere!
 const serialport = require("serialport");
 const express = require("express");
 const mysql = require("mysql2");
@@ -26,10 +25,10 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
       .createPool({
         // altere!
         // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
-        host: "localhost",
+        host: "10.18.36.141",
         database: "FioreMove",
         user: "root",
-        password: "Thy08021104",
+        password: "lorenalorena",
       })
       .promise();
   } else if (AMBIENTE == "producao") {
