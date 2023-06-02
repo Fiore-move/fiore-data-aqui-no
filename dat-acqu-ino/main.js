@@ -25,10 +25,10 @@ const serial = async (valoresDht11Umidade, valoresDht11Temperatura) => {
       .createPool({
         // altere!
         // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
-        host: "10.18.36.141",
+        host: "10.18.33.130",
         database: "FioreMove",
-        user: "root",
-        password: "lorenalorena",
+        user: "torres",
+        password: "urubu100",
       })
       .promise();
   } else if (AMBIENTE == "producao") {
